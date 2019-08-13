@@ -78,3 +78,10 @@ Processing by PagesController#about as HTML
 Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/about" for ::1 at 2019-08-12 17:00:49 +0300
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+

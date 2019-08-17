@@ -2182,3 +2182,80 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 78ms (Views: 75.4ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for ::1 at 2019-08-17 23:54:20 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:3
+  Rendered posts/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 648ms (Views: 613.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-08-17 23:54:33 +0300
+Processing by PostsController#new as HTML
+Filter chain halted as #<Proc:0x00005643e9e1d600@/var/lib/gems/2.5.0/gems/actionpack-5.2.3/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-08-17 23:54:41 +0300
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 105ms (Views: 100.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2019-08-17 23:54:49 +0300
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5D9T/8uYDzZDhmuxEAMr+WU0T8ym13g0vg7iW8rBX3vdMKS7OrypZ4qJvD7dD9pu2woROdwPok++9eJjoDjTyg==", "post"=>{"title"=>"Название", "body"=>"12345"}, "commit"=>"Save Post"}
+Filter chain halted as #<Proc:0x00005643e9e1d600@/var/lib/gems/2.5.0/gems/actionpack-5.2.3/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2019-08-17 23:54:49 +0300
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5D9T/8uYDzZDhmuxEAMr+WU0T8ym13g0vg7iW8rBX3vdMKS7OrypZ4qJvD7dD9pu2woROdwPok++9eJjoDjTyg==", "post"=>{"title"=>"Название", "body"=>"12345"}, "commit"=>"Save Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:17
+  [1m[36mPost Create (4.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Название"], ["body", "12345"], ["created_at", "2019-08-17 20:54:49.988998"], ["updated_at", "2019-08-17 20:54:49.988998"]]
+  ↳ app/controllers/posts_controller.rb:17
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:17
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 31ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/posts/6" for ::1 at 2019-08-17 23:54:50 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered posts/show.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 152ms (Views: 140.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2019-08-17 23:54:56 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:3
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/6" for ::1 at 2019-08-17 23:55:04 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered posts/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 79ms (Views: 75.3ms | ActiveRecord: 0.5ms)
+
+
